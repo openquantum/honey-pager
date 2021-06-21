@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import './myconfig';
 import database from './database';
 import User from './User';
@@ -17,9 +18,7 @@ beforeAll(async () => {
   await database.connect();
   await User.remove();
 
-  for (const fixture of fixtures) {
-    await new User(fixture).save();
-  }
+  await User.insertMany(fixtures);
 });
 
 afterAll(async () => {
