@@ -1,6 +1,6 @@
 {
   "name": "honey-pager",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "A Relay-style cursor pagination tool for mongoose schema.",
   "main": "build/index.js",
   "engines": {
@@ -10,6 +10,7 @@
     "lint": "eslint index.js lib/* graphql/*",
     "test": "yarn run lint && jest",
     "clean": "rm -rf build",
+    "prepare": "npm run build",
     "build": "yarn run clean && babel -d ./build --ignore node_modules,*test ."
   },
   "repository": "git@github.com:codeinbrain/honey-pager.git",
