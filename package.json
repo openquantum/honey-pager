@@ -1,5 +1,5 @@
 {
-  "name": "honey-pager",
+  "name": "@openquantum/honey-pager",
   "version": "0.2.0",
   "description": "A Relay-style cursor pagination tool for mongoose schema.",
   "main": "build/index.js",

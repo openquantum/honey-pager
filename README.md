@@ -1,3 +1,5 @@
+Fork from https://github.com/codeinbrain/honey-pager that uses Base64 instead of JWT.
+
 <p align="center">
   <img src="https://github.com/codeinbrain/honey-pager/blob/master/docs/honeypager.png" width="700" title="HoneyPager">
 </p>
