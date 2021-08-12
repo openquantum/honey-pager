@@ -460,7 +460,7 @@ test('Testing sort without order', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   const source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   const result = v.edges.map((v) => v.node.lastName);
   expect(JSON.stringify(result)).toBe(JSON.stringify(source));
 });
@@ -482,7 +482,7 @@ test('Testing sort asc', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   const source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   const result = v.edges.map((v) => v.node.lastName);
   expect(JSON.stringify(result)).toBe(JSON.stringify(source));
 });
@@ -504,7 +504,7 @@ test('Testing sort desc', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   const source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a < b);
+  source.sort((a, b) => b.localeCompare(a));
   const result = v.edges.map((v) => v.node.lastName);
   expect(JSON.stringify(result)).toBe(JSON.stringify(source));
 });
@@ -526,7 +526,7 @@ test('Testing sort without order using first', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(0, 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -551,7 +551,7 @@ test('Testing sort asc using first', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(0, 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -576,7 +576,7 @@ test('Testing sort desc using first', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a < b);
+  source.sort((a, b) => b.localeCompare(a));
   source = source.slice(0, 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -600,7 +600,7 @@ test('Testing sort without order using last', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -625,7 +625,7 @@ test('Testing sort asc using last', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -650,7 +650,7 @@ test('Testing sort desc using last', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a < b);
+  source.sort((a, b) => b.localeCompare(a));
   source = source.slice(source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -682,7 +682,7 @@ test('Testing sort without order using after', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -715,7 +715,7 @@ test('Testing sort asc using after', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -748,7 +748,7 @@ test('Testing sort desc using after', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(true);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a < b);
+  source.sort((a, b) => b.localeCompare(a));
   source = source.slice(2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -781,7 +781,7 @@ test('Testing sort without order using before', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(0, source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -814,7 +814,7 @@ test('Testing sort asc using before', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a > b);
+  source.sort();
   source = source.slice(0, source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -847,7 +847,7 @@ test('Testing sort desc using before', async () => {
   expect(v.pageInfo.hasPreviousPage).toBe(false);
 
   let source = fixtures.map((v) => v.lastName);
-  source.sort((a, b) => a < b);
+  source.sort((a, b) => b.localeCompare(a));
   source = source.slice(0, source.length - 2);
 
   const result = v.edges.map((v) => v.node.lastName);
@@ -980,4 +980,33 @@ test('Testing with cursor only (filter only on first query)', async () => {
   expect(v.edges.length).toBe(1);
   expect(v.pageInfo.hasNextPage).toBe(false);
   expect(v.pageInfo.hasPreviousPage).toBe(true);
+});
+
+test('Testing multiple sort', async () => {
+  const v = await User.paginateResult(
+    {},
+    {
+      sort: [
+        {
+          by: 'firstName',
+          order: 'desc',
+        },
+        {
+          by: 'lastName',
+          order: 'desc',
+        },
+      ],
+    }
+  );
+
+  expect(v.totalCount).toBe(6);
+  expect(v.edges.length).toBe(6);
+  expect(v.pageInfo.hasNextPage).toBe(false);
+  expect(v.pageInfo.hasPreviousPage).toBe(false);
+
+  let source = fixtures.map((v) => v.firstName + v.lastName);
+  source.sort((a, b) => b.localeCompare(a));
+
+  const result = v.edges.map((v) => v.node.firstName + v.node.lastName);
+  expect(JSON.stringify(result)).toBe(JSON.stringify(source));
 });
