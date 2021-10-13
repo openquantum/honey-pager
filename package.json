@@ -4,11 +4,11 @@
   "description": "A Relay-style cursor pagination tool for mongoose schema.",
   "main": "build/index.js",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "scripts": {
     "lint": "eslint index.js lib/* graphql/*",
-    "test": "yarn run lint && jest",
+    "test": "yarn run clean && yarn run lint && jest",
     "clean": "rm -rf build",
     "prepare": "npm run build",
     "build": "yarn run clean && babel -d ./build --ignore node_modules,*test ."
@@ -30,18 +30,19 @@
     "testURL": "http://localhost/"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/node": "^7.14.9",
-    "@babel/preset-env": "^7.15.0",
-    "@shelf/jest-mongodb": "^2.0.1",
-    "eslint": "^7.32.0",
-    "jest": "^27.0.6",
-    "mongoose": "^5.13.7"
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@shelf/jest-mongodb": "^2.1.0",
+    "eslint": "^8.0.0",
+    "jest": "^27.2.5",
+    "mongoose": "^6.0.10",
+    "tracer": "^1.1.5"
   },
   "dependencies": {
     "base64-url": "^2.3.3",
-    "graphql": "^15.5.1",
+    "graphql": "^15.6.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "validator": "^13.6.0"
