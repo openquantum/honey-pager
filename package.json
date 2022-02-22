@@ -1,6 +1,6 @@
 {
   "name": "@openquantum/honey-pager",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "description": "A Relay-style cursor pagination tool for mongoose schema.",
   "main": "build/index.js",
   "engines": {
@@ -22,29 +22,23 @@
     "LICENSE",
     "README.MD"
   ],
-  "jest": {
-    "modulePaths": [
-      "<rootDir>"
-    ],
-    "verbose": true,
-    "testURL": "http://localhost/"
-  },
   "devDependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/node": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@shelf/jest-mongodb": "^2.1.0",
-    "eslint": "^8.0.0",
-    "jest": "^27.2.5",
-    "mongoose": "^6.0.10",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@shelf/jest-mongodb": "^2.2.0",
+    "bluebird": "^3.7.2",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "mongoose": "^6.2.3",
     "tracer": "^1.1.5"
   },
   "dependencies": {
     "base64-url": "^2.3.3",
-    "graphql": "^15.6.1",
+    "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "validator": "^13.6.0"
+    "validator": "^13.7.0"
   }
 }
