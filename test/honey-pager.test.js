@@ -16,7 +16,7 @@ const fixtures = [
 
 beforeAll(async () => {
   await database.connect();
-  await User.remove();
+  await User.deleteOne();
 
   await User.insertMany(fixtures);
 });
