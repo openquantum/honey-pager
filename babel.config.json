@@ -11,5 +11,5 @@
       }
     ]
   ],
-  "ignore": ["./node_modules/", "./test"]
+  "ignore": ["./node_modules/"]
 }

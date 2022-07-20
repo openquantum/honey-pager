@@ -1,9 +1,7 @@
-import mongoose, { Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { honeypager } from '../';
 
-const { ObjectId } = Schema.Types;
-
-const schema = mongoose.Schema({
+const schema = Schema({
   firstName: {
     type: String
   },
@@ -23,4 +21,4 @@ const schema = mongoose.Schema({
 
 schema.plugin(honeypager);
 
-export default mongoose.model('User', schema);
+export default model('User', schema);
